@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Filter, SlidersHorizontal } from 'lucide-react';
 import ExperienceCard from '../components/ExperienceCard';
 import SearchBar from '../components/SearchBar';
+import PageTransition from '../components/PageTransition';
 import { trendingExperiences, recommendedExperiences } from '../lib/data';
 
 const allExperiences = [...trendingExperiences, ...recommendedExperiences];
@@ -16,7 +17,8 @@ export default function Explore() {
     : allExperiences.filter(exp => exp.tag === activeCategory);
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pt-32 pb-24">
+    <PageTransition>
+      <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-white mb-6 tracking-tight">
@@ -68,6 +70,7 @@ export default function Explore() {
           </div>
         )}
       </div>
-    </main>
+      </main>
+    </PageTransition>
   );
 }

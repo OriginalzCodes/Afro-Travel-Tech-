@@ -7,15 +7,17 @@ import FeaturedCities from '../components/FeaturedCities';
 import Testimonials from '../components/Testimonials';
 import CTASection from '../components/CTASection';
 import ContactSection from '../components/ContactSection';
+import PageTransition from '../components/PageTransition';
 import { trendingExperiences, recommendedExperiences } from '../lib/data';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
-      <Hero />
-      
-      {/* Trending Experiences */}
-      <section className="py-24 bg-white dark:bg-neutral-900">
+    <PageTransition>
+      <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+        <Hero />
+        
+        {/* Trending Experiences */}
+        <section className="py-24 bg-white dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
@@ -73,6 +75,7 @@ export default function Home() {
       <Testimonials />
       <ContactSection />
       <CTASection />
-    </main>
+      </main>
+    </PageTransition>
   );
 }
